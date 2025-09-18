@@ -15,11 +15,18 @@ function convertToObject(sourceString) {
     .map((styleString) => styleString.trim())
     .filter((styleString) => styleString)
     .forEach((styleString) => {
-      const parts = styleString.split(':').map((part) => part.trim());
-      const key = parts[0];
-      const value = parts[1];
+      const colonIndex = styleString.indexOf(':');
 
-      styles[key] = value;
+      if (colonIndex === -1) {
+        return;
+      }
+
+      const key = styleString.slice(0, colonIndex).trim();
+      const value = styleString.slice(colonIndex + 1).trim();
+
+      if (key) {
+        styles[key] = value;
+      }
     });
 
   return styles;
