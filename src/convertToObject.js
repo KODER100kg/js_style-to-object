@@ -12,10 +12,10 @@ function convertToObject(sourceString) {
 
   sourceString
     .split(';')
-    .map((s) => s.trim())
-    .filter((s) => s)
-    .forEach((s) => {
-      const parts = s.split(':').map((p) => p.trim());
+    .map((styleString) => styleString.trim())
+    .filter((styleString) => styleString)
+    .forEach((styleString) => {
+      const parts = styleString.split(':').map((part) => part.trim());
       const key = parts[0];
       const value = parts[1];
 
