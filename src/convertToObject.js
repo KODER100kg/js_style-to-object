@@ -24,7 +24,7 @@ function convertToObject(sourceString) {
       const key = styleString.slice(0, colonIndex).trim();
       const value = styleString.slice(colonIndex + 1).trim();
 
-      if (key) {
+      if (key && value) {
         styles[key] = value;
       }
     });
